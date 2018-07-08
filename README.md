@@ -57,12 +57,12 @@ cd AIND-VUI-Capstone
 
 2. Create (and activate) a new environment with Python 3.6 and the `numpy` package.
 
-	- __Linux__ or __Mac__: 
+	- __Linux__ or __Mac__:
 	```
 	conda create --name aind-vui python=3.5 numpy
 	source activate aind-vui
 	```
-	- __Windows__: 
+	- __Windows__:
 	```
 	conda create --name aind-vui python=3.5 numpy scipy
 	activate aind-vui
@@ -84,17 +84,17 @@ pip install -r requirements.txt
 ```
 
 5. Switch [Keras backend](https://keras.io/backend/) to TensorFlow.
-	- __Linux__ or __Mac__: 
+	- __Linux__ or __Mac__:
 	```
 	KERAS_BACKEND=tensorflow python -c "from keras import backend"
 	```
-	- __Windows__: 
+	- __Windows__:
 	```
 	set KERAS_BACKEND=tensorflow
 	python -c "from keras import backend"
 	```
-	- __NOTE:__ a Keras/Windows bug may give this error after the first epoch of training model 0: `‘rawunicodeescape’ codec can’t decode bytes in position 54-55: truncated \uXXXX `. 
-To fix it: 
+	- __NOTE:__ a Keras/Windows bug may give this error after the first epoch of training model 0: `‘rawunicodeescape’ codec can’t decode bytes in position 54-55: truncated \uXXXX `.
+To fix it:
 		- Find the file `keras/utils/generic_utils.py` that you are using for the capstone project. It should be in your environment under `Lib/site-packages` . This may vary, but if using miniconda, for example, it might be located at `C:/Users/username/Miniconda3/envs/aind-vui/Lib/site-packages/keras/utils`.
 		- Copy `generic_utils.py` to `OLDgeneric_utils.py` just in case you need to restore it.
 		- Open the `generic_utils.py` file and change this code line:</br>`marshal.dumps(func.code).decode(‘raw_unicode_escape’)`</br>to this code line:</br>`marshal.dumps(func.code).replace(b’\’,b’/’).decode(‘raw_unicode_escape’)`
@@ -114,7 +114,7 @@ To fix it:
 	```
 
 7. Obtain the appropriate subsets of the LibriSpeech dataset, and convert all flac files to wav format.
-	- __Linux__ or __Mac__: 
+	- __Linux__ or __Mac__:
 	```
 	wget http://www.openslr.org/resources/12/dev-clean.tar.gz
 	tar -xzvf dev-clean.tar.gz
@@ -172,54 +172,54 @@ Alternatively, your submission could consist of the GitHub link to your reposito
 
 #### Files Submitted
 
-| Criteria       		|     Meets Specifications	        			            | 
-|:---------------------:|:---------------------------------------------------------:| 
+| Criteria       		|     Meets Specifications	        			            |
+|:---------------------:|:---------------------------------------------------------:|
 | Submission Files      | The submission includes all required files.		|
 
 #### STEP 2: Model 0: RNN
 
-| Criteria       		|     Meets Specifications	        			            | 
-|:---------------------:|:---------------------------------------------------------:| 
+| Criteria       		|     Meets Specifications	        			            |
+|:---------------------:|:---------------------------------------------------------:|
 | Trained Model 0         		| The submission trained the model for at least 20 epochs, and none of the loss values in `model_0.pickle` are undefined.  The trained weights for the model specified in `simple_rnn_model` are stored in `model_0.h5`.   	|
 
 #### STEP 2: Model 1: RNN + TimeDistributed Dense
 
-| Criteria       		|     Meets Specifications	        			            | 
-|:---------------------:|:---------------------------------------------------------:| 
+| Criteria       		|     Meets Specifications	        			            |
+|:---------------------:|:---------------------------------------------------------:|
 | Completed `rnn_model` Module         		| The submission includes a `sample_models.py` file with a completed `rnn_model` module containing the correct architecture.   	|
 | Trained Model 1         		| The submission trained the model for at least 20 epochs, and none of the loss values in `model_1.pickle` are undefined.  The trained weights for the model specified in `rnn_model` are stored in `model_1.h5`.   	|
 
 #### STEP 2: Model 2: CNN + RNN + TimeDistributed Dense
 
-| Criteria       		|     Meets Specifications	        			            | 
-|:---------------------:|:---------------------------------------------------------:| 
+| Criteria       		|     Meets Specifications	        			            |
+|:---------------------:|:---------------------------------------------------------:|
 | Completed `cnn_rnn_model` Module         		| The submission includes a `sample_models.py` file with a completed `cnn_rnn_model` module containing the correct architecture.   	|
 | Trained Model 2         		| The submission trained the model for at least 20 epochs, and none of the loss values in `model_2.pickle` are undefined.  The trained weights for the model specified in `cnn_rnn_model` are stored in `model_2.h5`.   	|
 
 #### STEP 2: Model 3: Deeper RNN + TimeDistributed Dense
 
-| Criteria       		|     Meets Specifications	        			            | 
-|:---------------------:|:---------------------------------------------------------:| 
+| Criteria       		|     Meets Specifications	        			            |
+|:---------------------:|:---------------------------------------------------------:|
 | Completed `deep_rnn_model` Module         		| The submission includes a `sample_models.py` file with a completed `deep_rnn_model` module containing the correct architecture.   	|
 | Trained Model 3         		| The submission trained the model for at least 20 epochs, and none of the loss values in `model_3.pickle` are undefined.  The trained weights for the model specified in `deep_rnn_model` are stored in `model_3.h5`.   	|
 
 #### STEP 2: Model 4: Bidirectional RNN + TimeDistributed Dense
 
-| Criteria       		|     Meets Specifications	        			            | 
-|:---------------------:|:---------------------------------------------------------:| 
+| Criteria       		|     Meets Specifications	        			            |
+|:---------------------:|:---------------------------------------------------------:|
 | Completed `bidirectional_rnn_model` Module         		| The submission includes a `sample_models.py` file with a completed `bidirectional_rnn_model` module containing the correct architecture.   	|
 | Trained Model 4         		| The submission trained the model for at least 20 epochs, and none of the loss values in `model_4.pickle` are undefined.  The trained weights for the model specified in `bidirectional_rnn_model` are stored in `model_4.h5`.   	|
 
 #### STEP 2: Compare the Models
 
-| Criteria       		|     Meets Specifications	        			            | 
-|:---------------------:|:---------------------------------------------------------:| 
+| Criteria       		|     Meets Specifications	        			            |
+|:---------------------:|:---------------------------------------------------------:|
 | Question 1         		| The submission includes a detailed analysis of why different models might perform better than others.   	|
 
 #### STEP 2: Final Model
 
-| Criteria       		|     Meets Specifications	        			            | 
-|:---------------------:|:---------------------------------------------------------:| 
+| Criteria       		|     Meets Specifications	        			            |
+|:---------------------:|:---------------------------------------------------------:|
 | Completed `final_model` Module         		| The submission includes a `sample_models.py` file with a completed `final_model` module containing a final architecture that is not identical to any of the previous architectures.   	|
 | Trained Final Model        		| The submission trained the model for at least 20 epochs, and none of the loss values in `model_end.pickle` are undefined.  The trained weights for the model specified in `final_model` are stored in `model_end.h5`.   	|
 | Question 2         		| The submission includes a detailed description of how the final model architecture was designed.   	|
