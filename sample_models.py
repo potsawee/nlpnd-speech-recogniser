@@ -100,7 +100,7 @@ def deep_rnn_model(input_dim, units, recur_layers, output_dim=29):
     prev_layer = input_data
     # TODO: Add recurrent layers, each with batch normalization
     for i in range(recur_layers):
-        simp_rnn = SimpleRNN(units, activation='relu', return_sequences=True, implementation=2, name='rnn'+str(i))(prev_layer)
+        simp_rnn = GRU(units, activation='relu', return_sequences=True, implementation=2, name='rnn'+str(i))(prev_layer)
         bn_rnn = BatchNormalization(name='bn_rnn'+str(i))(simp_rnn)
         prev_layer = bn_rnn
     # TODO: Add a TimeDistributed(Dense(output_dim)) layer
@@ -119,9 +119,9 @@ def bidirectional_rnn_model(input_dim, units, output_dim=29):
     # Main acoustic input
     input_data = Input(name='the_input', shape=(None, input_dim))
     # TODO: Add bidirectional recurrent layer
-    bidir_rnn = ...
+    bidir_rnn = Bidirectional(LSTM(units, activation='relu', return_sequences=True, implementation=2), name='bi-LSTM')(input_data)
     # TODO: Add a TimeDistributed(Dense(output_dim)) layer
-    time_dense = ...
+    time_dense = TimeDistributed(Dense(output_dim))(bidir_rnn)
     # Add softmax activation layer
     y_pred = Activation('softmax', name='softmax')(time_dense)
     # Specify the model
